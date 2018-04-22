@@ -25,3 +25,4 @@ The usage is shown in the TileManager class.
 - **d**: It supports Windows, Linux and Android platforms. Not tested on IOS but is should work there too.
 
 Packages utilized from the Unity Asset Store:
+------------
