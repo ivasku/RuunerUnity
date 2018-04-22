@@ -29,11 +29,7 @@ public class PlayerControllerV2 : MonoBehaviour
    
     // Use this for initialization
     void Start()
-    {
-        for (int i = 0; i < PowerUpPrefabs.Length; i++)
-        {
-            PoolManager.instance.CreatePool(PowerUpPrefabs[i], 2);
-        }
+    {       
         InvokeRepeating("spawnPowerUp", 10.0f, 12.0f);
     }
 
