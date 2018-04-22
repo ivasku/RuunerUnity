@@ -26,6 +26,8 @@ the gameObject but you reuse the objects from the object pool and when you don't
 The usage is shown in the `TileManager` class.
 - **c**: UX - Player has running animation and some obstacles like spikes. There are also transitions in the UI menu like fading.
 - **d**: It supports Windows, Linux and Android platforms. Not tested on IOS but is should work there too.
+Controlls on mobile devices are divided in the regions of the screen. When you tap on the left part of the screen you move left,
+on the upper part of the screen you jump.
 
 Packages utilized from the Unity Asset Store:
 ------------
