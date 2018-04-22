@@ -40,6 +40,6 @@ All assets are free from the store.
 Assets utilized from other sources:
 ------------
 - **a**: Road image (https://pixabay.com/en/sand-sky-apocalypse-cloud-horizon-2876796/)
-- **b**: Assets created by `Stefan Subin`: spikes 3d object,
+- **b**: Assets created by `Stefan Subin`: spikes 3d object, powerUp double points model, powerUp invincibility model.
 
 All assets are free for comercial use, no attribution required
