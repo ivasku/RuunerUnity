@@ -23,7 +23,7 @@ Game contains following implementations:
 - **b**: Pooling/Recycling of level objects. According to the player position, the road tiles are generated/deleted. Also there is
 a Pool manager object that instantiates the object at the start of the game and during the game you never instantiate/delete
 the gameObject but you reuse the objects from the object pool and when you don`t need it anymore you just deactivate it.
-The usage is shown in the TileManager class.
+The usage is shown in the `TileManager` class.
 - **c**: UX - Player has running animation and some obstacles like spikes. There are also transitions in the UI menu like fading.
 - **d**: It supports Windows, Linux and Android platforms. Not tested on IOS but is should work there too.
 
