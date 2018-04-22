@@ -28,7 +28,7 @@ public class PlayerControllerV2 : MonoBehaviour
     {
         if (Time.time < CameraObject.GetComponent<CameraControllerRunner>().animDuration)
         {
-            //controller.Move(Vector3.forward * speed * Time.deltaTime); // don`t move while the animation is running
+            // don`t move while the animation is running
             return;
         }
         Move();
@@ -45,30 +45,17 @@ public class PlayerControllerV2 : MonoBehaviour
         Vector3 ForwardTarget = new Vector3(otherGameObject.transform.position.x,
             this.gameObject.transform.position.y, TargetObject.transform.position.z);
 
-        if (Input.GetKeyDown(leftControll) || (Input.GetMouseButtonDown(0) && Input.mousePosition.x < Screen.width / 2) && (Input.GetMouseButtonDown(0) && Input.mousePosition.y < Screen.width / 2))
+        if (Input.GetKeyDown(leftControll) || (Input.GetMouseButtonDown(0) && Input.mousePosition.x < Screen.width / 2) && (Input.GetMouseButtonDown(0) && Input.mousePosition.y < Screen.height / 2))
         {
-                       
-
             if (otherGameObject.tag.Equals("middleLane") || otherGameObject.tag.Equals("rightLane"))
             {
                  this.transform.position = new Vector3(this.transform.position.x - 1.8f,
                      this.transform.position.y,
-                     this.transform.position.z);
-
-                /*this.gameObject.GetComponent<Rigidbody>().AddForce(
-                    new Vector3(-70, 0, 0), ForceMode.Impulse);*/
-
-              /*  ForwardTarget.x = ForwardTarget.x - 5.8f;
-
-                StartCoroutine(MoveOverSeconds(this.gameObject,
-                    new Vector3(this.transform.position.x - 1.8f,
-                     this.transform.position.y,
-                     this.transform.position.z), 1f));*/
-
+                     this.transform.position.z);         
             }
         }
 
-        if (Input.GetKeyDown(rightControll) || (Input.GetMouseButtonDown(0) && Input.mousePosition.x > Screen.width / 2) && (Input.GetMouseButtonDown(0) && Input.mousePosition.y < Screen.width / 2))
+        if (Input.GetKeyDown(rightControll) || (Input.GetMouseButtonDown(0) && Input.mousePosition.x > Screen.width / 2) && (Input.GetMouseButtonDown(0) && Input.mousePosition.y < Screen.height / 2))
         {
             if (otherGameObject.tag.Equals("middleLane") || otherGameObject.tag.Equals("leftLane"))
             {
@@ -81,9 +68,7 @@ public class PlayerControllerV2 : MonoBehaviour
         if (Input.GetKeyDown(jumpControll) && this.gameObject.transform.position.y < 0.6f || (Input.GetMouseButtonDown(0) && Input.mousePosition.y > Screen.height / 2) && this.gameObject.transform.position.y < 0.6f)
         {
             this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,5,0);
-        }
-
-        
+        }        
 
         this.gameObject.transform.position = Vector3.MoveTowards(transform.position,
             ForwardTarget, step);
@@ -107,21 +92,4 @@ public class PlayerControllerV2 : MonoBehaviour
             this.gameObject.GetComponent<ScoreController>().Dead();
         }
     }
-
-
-    public IEnumerator MoveOverSeconds(GameObject objectToMove, Vector3 end, float seconds)
-    {
-        float elapsedTime = 0;
-        Vector3 startingPos = objectToMove.transform.position;
-        while (elapsedTime < seconds)
-        {
-            transform.position = Vector3.Lerp(startingPos, end, (elapsedTime / seconds));
-            elapsedTime += Time.deltaTime;
-            // yield return new WaitForEndOfFrame();
-            yield return new WaitForSeconds(0.01f);
-
-        }
-        transform.position = end;
-    }
-
 }
