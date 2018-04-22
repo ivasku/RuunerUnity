@@ -153,7 +153,7 @@ public class PlayerControllerV2 : MonoBehaviour
 
         currentPowerUp = Instantiate(PowerUpPrefabs[RandomPowerUpPrefab],
                 PowerUpPositions[RandomPosition].transform.position,
-                PowerUpPositions[RandomPosition].transform.rotation);
+                Quaternion.identity);
 
         Destroy(currentPowerUp, 5.0f);
     }
