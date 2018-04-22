@@ -23,7 +23,7 @@ public class TileManager : MonoBehaviour {
         // create 5 instances of every type of road for PoolManager so it can reuse them later
         for (int i = 0; i < tilePrefabs.Length; i++)
         {
-            PoolManager.instance.CreatePool(tilePrefabs[i], 5);
+            PoolManager.instance.CreatePool(tilePrefabs[i], 4);
         }              
 
         activeTiles = new List<GameObject>();
