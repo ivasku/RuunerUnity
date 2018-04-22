@@ -6,8 +6,6 @@ Infinite Runner (PC &amp; Mobile)
 
 Developed with Unity3d 2017.4.1f1 version.
 
-Work In progress , documentation will be completed.
-
 
 Game has the following features:
 ------------
