@@ -13,14 +13,28 @@ public class PlayerControllerV2 : MonoBehaviour
     public KeyCode jumpControll;
 
     public GameObject CameraObject;
-    public GameObject TargetObject;   
+    public GameObject TargetObject;
+
+    public GameObject[] PowerUpPrefabs;
+    public GameObject[] PowerUpPositions;
+
+    public GameObject InvincibleParticles;   
+    public GameObject PickUpParticles;
 
     private GameObject otherGameObject;
     private bool isDead;
+    private GameObject currentPowerUp;
+
+    private bool invinciblePowerUp;
    
     // Use this for initialization
     void Start()
-    {        
+    {
+        for (int i = 0; i < PowerUpPrefabs.Length; i++)
+        {
+            PoolManager.instance.CreatePool(PowerUpPrefabs[i], 2);
+        }
+        InvokeRepeating("spawnPowerUp", 10.0f, 12.0f);
     }
 
     // Update is called once per frame
@@ -86,10 +100,62 @@ public class PlayerControllerV2 : MonoBehaviour
             otherGameObject = other.gameObject;
         }
 
-        if (other.gameObject.tag.Equals("obstacle"))
+
+        if (other.gameObject.tag.Equals("invincible"))
         {
-            isDead = true;           
-            this.gameObject.GetComponent<ScoreController>().Dead();
+            //you cannot die for 5 seconds , no need for object pooling, only 1 particle system
+            Instantiate(PickUpParticles, other.gameObject.transform.position,
+                other.gameObject.transform.rotation);// maybe spawn some particles when pickUp on player
+            other.gameObject.SetActive(false);            
+            InvincibleParticles.SetActive(true);
+            invinciblePowerUp = true;
+            Invoke("TurnOffInvincible", 5.0f);
+            Destroy(PickUpParticles, 0.5f);
         }
+
+        //we spawn the particles here because we already have the reference 
+        if (other.gameObject.tag.Equals("double_points"))
+        {
+            Instantiate(PickUpParticles, other.gameObject.transform.position,
+               other.gameObject.transform.rotation);            
+            Destroy(PickUpParticles, 0.5f);
+        }
+
+            if (other.gameObject.tag.Equals("obstacle"))
+        {
+            if (!invinciblePowerUp)
+            {
+                isDead = true;
+                this.gameObject.GetComponent<ScoreController>().Dead();
+            }
+        }
+
+        // always die when you fall
+        if (other.gameObject.tag.Equals("obstacle_hole"))
+        {           
+            isDead = true;
+            this.gameObject.GetComponent<ScoreController>().Dead();            
+        }
+
     }
+
+    private void TurnOffInvincible()
+    {
+        InvincibleParticles.SetActive(false);
+        invinciblePowerUp = false;
+    }
+
+
+    private void spawnPowerUp()
+    {        
+        int RandomPowerUpPrefab = Random.Range(0, PowerUpPrefabs.Length);
+        int RandomPosition = Random.Range(0, PowerUpPositions.Length);
+
+        currentPowerUp = Instantiate(PowerUpPrefabs[RandomPowerUpPrefab],
+                PowerUpPositions[RandomPosition].transform.position,
+                PowerUpPositions[RandomPosition].transform.rotation);
+
+        Destroy(currentPowerUp, 5.0f);
+    }
+       
 }

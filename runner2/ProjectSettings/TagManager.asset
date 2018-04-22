@@ -8,6 +8,9 @@ TagManager:
   - leftLane
   - rightLane
   - obstacle
+  - invincible
+  - obstacle_hole
+  - double_points
   layers:
   - Default
   - TransparentFX

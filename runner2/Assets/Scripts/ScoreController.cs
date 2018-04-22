@@ -7,13 +7,18 @@ public class ScoreController : MonoBehaviour {
 
     public Text scoreText;
     public DeathMenuController deathMenu;
+    public GameObject DoublePointsParticles;
 
     private float score;
+    private float timeInGame;
 
     private int diffLevel = 1;
-    private int maxDiffLevel = 10;
+    private int maxDiffLevel = 20;
     private int scoreToNextLevel = 10;
+    private int timeToNextLevel = 10;
     private bool isDead;
+
+    private bool doublePointsPowerUp;
 
 	// Use this for initialization
 	void Start () {
@@ -29,12 +34,19 @@ public class ScoreController : MonoBehaviour {
             return;
         }
 
-        if (score >= scoreToNextLevel)
+        if (timeInGame >= timeToNextLevel)
         {
             LevelUp();
         }
 
         score += Time.deltaTime;
+        timeInGame += Time.deltaTime;
+
+        if (doublePointsPowerUp)
+        {
+            score++; // increment again score
+        }
+
         scoreText.text = ((int)score).ToString();
 	}
 
@@ -45,7 +57,7 @@ public class ScoreController : MonoBehaviour {
             return;
         }
 
-        scoreToNextLevel *= 2;
+        timeToNextLevel *= 2;
         diffLevel++;
 
         this.gameObject.GetComponent<PlayerControllerV2>().SetSpeed(diffLevel);
@@ -59,5 +71,22 @@ public class ScoreController : MonoBehaviour {
             PlayerPrefs.SetFloat("score", score);
         }        
         deathMenu.ShowEndMenu(score);
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag.Equals("double_points"))
+        {
+            doublePointsPowerUp = true;
+            DoublePointsParticles.SetActive(true);
+            Invoke("DisableDoublePoints", 3.5f);
+        }
+    }
+
+    private void DisableDoublePoints()
+    {
+        doublePointsPowerUp = false;
+        DoublePointsParticles.SetActive(false);
     }
 }
