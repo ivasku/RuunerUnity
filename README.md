@@ -26,3 +26,15 @@ The usage is shown in the TileManager class.
 
 Packages utilized from the Unity Asset Store:
 ------------
+- **a**: Low Poly Street Pack (https://assetstore.unity.com/packages/3d/environments/urban/low-poly-street-pack-67475)
+- **b**: Free Animated Space Man (https://assetstore.unity.com/packages/3d/characters/humanoids/free-animated-space-man-61548)
+- **c**: Simple UI (https://assetstore.unity.com/packages/2d/gui/icons/simple-ui-103969)
+- **d**: Skybox (https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-4183)
+
+All assets are free from the store.
+
+Assets utilized from other sources:
+------------
+- **a**: Road image (https://pixabay.com/en/sand-sky-apocalypse-cloud-horizon-2876796/)
+
+All assets are free for comercial use, no attribution required
