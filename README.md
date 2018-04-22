@@ -1,8 +1,10 @@
 # RunnerUnity
 Infinite Runner (PC &amp; Mobile)
 
-**Windows build located in the Build directory.
-Android build (APK) located in the androidBuild directory.**
+**Windows build located in the Build directory.**
+**Android build (APK) located in the androidBuild directory.**
+
+Developed with Unity3d 2017.4.1f1 version.
 
 Work In progress , documentation will be completed.
 
