@@ -41,5 +41,6 @@ All assets are free from the store.
 Assets utilized from other sources:
 ------------
 - **a**: Road image (https://pixabay.com/en/sand-sky-apocalypse-cloud-horizon-2876796/)
+- **b**: Models created by 'Stefan Subin': spikes object,
 
 All assets are free for comercial use, no attribution required
