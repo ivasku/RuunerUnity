@@ -7,7 +7,8 @@ Work In progress , documentation will be completed.
 
 
 Game has the following features:
-a. Player supports left-right and jumping movement.
+------------
+- **a**: Player supports left-right and jumping movement.
 b. Obstacles (static obstacles on the road, dynamic (spikes) and holes in the road where you can fall).
 c. It has MainMenu scene with UI and HighScore information. When you die you have in-Game menu to restart the game, go back to 
 MainMenu scene and score information.
