@@ -1075,6 +1075,7 @@ MonoBehaviour:
   - {fileID: 1622143510774742, guid: 6c06037282015a3428778a83cf0c83da, type: 2}
   - {fileID: 1968978169987960, guid: 0dd6372aec0bbe344b5c7ad4110c5899, type: 2}
   - {fileID: 1361996246909460, guid: 2b4adccc8ec22b941863f48cf921c399, type: 2}
+  - {fileID: 1392902929394822, guid: 3f53a189d2bbd1a41ac6880264fc3dd5, type: 2}
   amountOfTiles: 5
 --- !u!4 &1751351325
 Transform:

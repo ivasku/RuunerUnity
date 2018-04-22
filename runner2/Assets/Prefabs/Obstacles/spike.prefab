@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4299374714342040}
   m_Layer: 0
   m_Name: spike
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,6 +36,8 @@ GameObject:
   - component: {fileID: 4353296379045150}
   - component: {fileID: 33012521750685568}
   - component: {fileID: 23559369788770534}
+  - component: {fileID: 65189181401898250}
+  - component: {fileID: 111382797624486922}
   m_Layer: 0
   m_Name: Object001
   m_TagString: Untagged
@@ -67,8 +69,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1114140159509154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.7122393, y: 3.61, z: -14.476767}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 52.47313, y: 92.42854, z: -194.79102}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4353296379045150}
   - {fileID: 4789969665241090}
@@ -82,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1214102376031940}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0.012175598, z: 0}
+  m_LocalPosition: {x: 0, y: 0.012175598, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4299374714342040}
@@ -183,3 +185,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1649677034031574}
   m_Mesh: {fileID: 4300000, guid: df193957febb3594b905d364983c2f5b, type: 3}
+--- !u!65 &65189181401898250
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1214102376031940}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.4798403, y: 7.7094593, z: 4.4527607}
+  m_Center: {x: -0.13560355, y: 0.0013798475, z: 2.3577716}
+--- !u!111 &111382797624486922
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1214102376031940}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: efb977beb8abc81408b782563dfee996, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: efb977beb8abc81408b782563dfee996, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
