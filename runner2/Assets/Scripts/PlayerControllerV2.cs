@@ -110,7 +110,7 @@ public class PlayerControllerV2 : MonoBehaviour
             InvincibleParticles.SetActive(true);
             invinciblePowerUp = true;
             Invoke("TurnOffInvincible", 5.0f);
-            Destroy(PickUpParticles, 0.5f);
+            Destroy(PickUpParticles, 1.5f);
         }
 
         //we spawn the particles here because we already have the reference 
@@ -118,7 +118,7 @@ public class PlayerControllerV2 : MonoBehaviour
         {
             Instantiate(PickUpParticles, other.gameObject.transform.position,
                other.gameObject.transform.rotation);            
-            Destroy(PickUpParticles, 0.5f);
+            Destroy(PickUpParticles, 1.5f);
         }
 
             if (other.gameObject.tag.Equals("obstacle"))
