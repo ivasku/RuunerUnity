@@ -35,6 +35,7 @@ Packages utilized from the Unity Asset Store:
 - **b**: Free Animated Space Man (https://assetstore.unity.com/packages/3d/characters/humanoids/free-animated-space-man-61548)
 - **c**: Simple UI (https://assetstore.unity.com/packages/2d/gui/icons/simple-ui-103969)
 - **d**: Skybox (https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-4183)
+- **e**: 100+ Magic Particle Effects (https://assetstore.unity.com/packages/vfx/particles/spells/100-magic-particle-effects-23515)
 
 All assets are free from the store.
 
