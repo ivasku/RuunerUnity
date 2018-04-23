@@ -30,7 +30,7 @@ public class PlayerControllerV2 : MonoBehaviour
     // Use this for initialization
     void Start()
     {       
-        InvokeRepeating("spawnPowerUp", 10.0f, 12.0f);
+        InvokeRepeating("spawnPowerUp", 8.0f, 8.0f);
     }
 
     // Update is called once per frame
