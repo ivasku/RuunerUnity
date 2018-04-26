@@ -86,7 +86,7 @@ public class PlayerControllerV2 : MonoBehaviour
     }
 #endif
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
     private void Move()
     {
         if (isDead || !otherGameObject)
