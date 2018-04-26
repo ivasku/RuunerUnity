@@ -100,21 +100,21 @@ public class PlayerControllerV2 : MonoBehaviour
         if (other.gameObject.tag.Equals("invincible"))
         {
             //you cannot die for 5 seconds , no need for object pooling, only 1 particle system
-            Instantiate(PickUpParticles, other.gameObject.transform.position,
+            GameObject particles = Instantiate(PickUpParticles, other.gameObject.transform.position,
                 other.gameObject.transform.rotation);// maybe spawn some particles when pickUp on player
             other.gameObject.SetActive(false);            
             InvincibleParticles.SetActive(true);
             invinciblePowerUp = true;
             Invoke("TurnOffInvincible", 5.0f);
-            Destroy(PickUpParticles, 1.5f);
+            Destroy(particles, 1.5f);
         }
 
         //we spawn the particles here because we already have the reference 
         if (other.gameObject.tag.Equals("double_points"))
         {
-            Instantiate(PickUpParticles, other.gameObject.transform.position,
+            GameObject particles = Instantiate(PickUpParticles, other.gameObject.transform.position,
                other.gameObject.transform.rotation);            
-            Destroy(PickUpParticles, 1.5f);
+            Destroy(particles, 1.5f);
         }
 
             if (other.gameObject.tag.Equals("obstacle"))
