@@ -44,6 +44,49 @@ public class PlayerControllerV2 : MonoBehaviour
         Move();
     }
 
+#if UNITY_ANDROID && !UNITY_EDITOR
+    private void Move()
+    {
+         if (isDead || !otherGameObject)
+        {
+            return;
+        }
+
+        float step = speed * Time.deltaTime;
+        Vector3 ForwardTarget = new Vector3(otherGameObject.transform.position.x,
+            this.gameObject.transform.position.y, TargetObject.transform.position.z);
+
+        if ((Input.GetMouseButtonDown(0) && Input.mousePosition.x < Screen.width / 2) && (Input.GetMouseButtonDown(0) && Input.mousePosition.y < Screen.height / 2))
+        {
+            if (otherGameObject.tag.Equals("middleLane") || otherGameObject.tag.Equals("rightLane"))
+            {
+                 this.transform.position = new Vector3(this.transform.position.x - 1.8f,
+                     this.transform.position.y,
+                     this.transform.position.z);         
+            }
+        }
+
+        if ((Input.GetMouseButtonDown(0) && Input.mousePosition.x > Screen.width / 2) && (Input.GetMouseButtonDown(0) && Input.mousePosition.y < Screen.height / 2))
+        {
+            if (otherGameObject.tag.Equals("middleLane") || otherGameObject.tag.Equals("leftLane"))
+            {
+                this.transform.position = new Vector3(this.transform.position.x + 1.8f, this.transform.position.y,
+                     this.transform.position.z);
+            }
+        }
+               
+        //if grounded
+        if ((Input.GetMouseButtonDown(0) && Input.mousePosition.y > Screen.height / 2) && this.gameObject.transform.position.y < 0.6f)
+        {
+            this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,5,0);
+        }        
+
+        this.gameObject.transform.position = Vector3.MoveTowards(transform.position,
+            ForwardTarget, step);
+    }
+#endif
+
+#if UNITY_EDITOR
     private void Move()
     {
         if (isDead || !otherGameObject)
@@ -83,6 +126,7 @@ public class PlayerControllerV2 : MonoBehaviour
         this.gameObject.transform.position = Vector3.MoveTowards(transform.position,
             ForwardTarget, step);
     }
+#endif
 
     public void SetSpeed(float speedModifier)
     {
